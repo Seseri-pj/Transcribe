@@ -64,13 +64,13 @@ workflows:
   build_deploy:
     jobs:
       - build
-      - lint:
-          requires:
-            - build
+      # - lint:
+      #     requires:
+      #       - build
       - deploy:
           requires:
             - build
-            - lint
+            # - lint
           filters:
             branches:
               only: develop
