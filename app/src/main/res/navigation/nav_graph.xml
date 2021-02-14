@@ -8,21 +8,39 @@
     <fragment
         android:id="@+id/TopFragment"
         android:name="app.agroup.fragment.TopFragment"
-        android:label="@string/first_fragment_label"
+        android:label="@string/top_fragment_label"
         tools:layout="@layout/fragment_top">
-
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_TopFragment_to_settingFragment"
+            app:destination="@id/settingFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_TopFragment_to_resultFragment"
+            app:destination="@id/resultFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
+        android:id="@+id/resultFragment"
         android:name="app.agroup.fragment.ResultFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result" >
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/TopFragment" />
+            android:id="@+id/action_resultFragment_to_TopFragment"
+            app:destination="@id/TopFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            />
     </fragment>
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="app.agroup.fragment.SettingFragment"
+        android:label="SettingFragment" />
 </navigation>
