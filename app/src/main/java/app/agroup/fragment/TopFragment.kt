@@ -7,12 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import app.agroup.activity.R
+import app.agroup.adapter.TopRecyclerViewAdapter
+import app.agroup.viewmodel.TopViewModel
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
 class TopFragment : Fragment() {
+
+    private val topViewModel = TopViewModel()
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -23,10 +29,8 @@ class TopFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        var button = view.findViewById<Button>(R.id.button_first)
-        button.setOnClickListener {
-            findNavController().navigate(R.id.action_TopFragment_to_resultFragment)
-        }
+        val topRecyclerView = view.findViewById<RecyclerView>(R.id.top_recycler_view)
+        topRecyclerView.adapter = TopRecyclerViewAdapter(topViewModel.resultRaw)
+        topRecyclerView.layoutManager = LinearLayoutManager(context)
     }
 }
