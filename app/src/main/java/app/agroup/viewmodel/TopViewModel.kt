@@ -21,7 +21,7 @@ class TopViewModel: ViewModel() {
     val resultRaw = mutableListOf<Result>()
 
     init {
-        val testData = listOf<String>("リスト1", "リスト2", "リスト3", "リスト4")
-        for ((index, data) in testData.withIndex()) resultRaw.add(Result(index, data))
+        //val testData = listOf<String>("リスト1", "リスト2", "リスト3", "リスト4")
+        //for ((index, data) in testData.withIndex()) resultRaw.add(Result(index, data))
     }
 }
