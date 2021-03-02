@@ -11,6 +11,8 @@ import app.agroup.entity.Result
 class TopRecyclerViewAdapter(private val resultData: MutableList<Result>)
     : RecyclerView.Adapter<TopRecyclerViewAdapter.TopRecyclerViewHolder>() {
 
+    // リスナを格納する変数を定義
+    private lateinit var listener: OnItemClickListener
 
     /**
      * リスト一列分のViewを保持するクラス
@@ -32,9 +34,26 @@ class TopRecyclerViewAdapter(private val resultData: MutableList<Result>)
     override fun onBindViewHolder(holder: TopRecyclerViewHolder, position: Int) {
         holder.indexView.text = resultData[position].id.toString()
         holder.fileNameView.text = resultData[position].name
+        // クリックイベントにリスナをセット
+        val item = resultData[position]
+        holder.itemView.setOnClickListener {
+            // リスト上のアイテムがクリックされた時にインターフェースの処理が実行される
+            listener.onItemClick(item)
+        }
     }
 
     override fun getItemCount(): Int {
         return resultData.size
+    }
+
+    //インターフェースの作成
+    interface OnItemClickListener{
+        // リスト上でクリックされたアイテム情報
+        fun onItemClick(item: Result)
+    }
+
+    // リスナー
+    fun setOnItemClickListener(listener: OnItemClickListener){
+        this.listener = listener
     }
 }
